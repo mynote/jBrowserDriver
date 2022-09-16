@@ -34,25 +34,34 @@
   </licenses>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <selenium.version>4.0.0-alpha-2</selenium.version> <!-- note: selenium does not follow semantic versioning -->
+    <selenium.version>4.4.0</selenium.version> <!-- note: selenium does not follow semantic versioning -->
   </properties>
   <dependencies>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-cache -->
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient-cache</artifactId>
-      <version>4.5.10</version>
+      <version>4.5.13</version>
     </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.28</version>
+      <version>2.0.1</version>
     </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.28</version>
-      <optional>true</optional>
+      <version>2.0.1</version>
+      <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-api</artifactId>
@@ -120,10 +129,15 @@
         </exclusion>
       </exclusions>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+
     <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-server</artifactId>
-      <version>${selenium.version}</version>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-server</artifactId>
+        <version>4.0.0-alpha-2</version>
+
+
       <exclusions>
         <!-- very sadly, wildcard exclusions have some issues for downstream projects
              e.g. https://issues.apache.org/jira/browse/MASSEMBLY-675 and
@@ -459,7 +473,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>3.0.1</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
